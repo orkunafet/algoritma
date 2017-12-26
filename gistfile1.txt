@@ -1,0 +1,39 @@
+package orkun;
+
+import java.util.Scanner;
+
+public class orkun {
+public void karakterSayaci(String str) { 
+if (str == null) 
+return; 
+String[] karakterDizisi = {"a","A","b","B","c","C","ç","Ç","d","D","e","E","f","F","g","G","ğ","Ğ","h","H","ı","I","i","İ","j","J","k","K","l","L","m","M","n","N","o","O","ö","Ö", 
+"P","p","Q","q","R","r","S","s","Ş","ş","T","t","U","u","Ü","ü","V","v","W","w","X","x","Y","y","Z","z", 
+"0","1","2","3","4","5","6","7","8","9"};  
+int[] sayacDizisi = new int [74]; 
+int sayac = 0; 
+for (int i = 0; i < str.length(); i++) { 
+char charKarakter = str.charAt(i); 
+String strKarakter = Character.toString(charKarakter); 
+for(int j=0;j<karakterDizisi.length;++j) 
+{ 
+if (karakterDizisi[j].equals(strKarakter)||karakterDizisi[j].equals(strKarakter.toLowerCase())) 
+{ 
+int l = sayacDizisi[j]; 
+sayacDizisi[j]= l+1 ; 
+} 
+} 
+sayac++; 
+} 
+for (int k = 0; k < 74; k++) { 
+if (sayacDizisi[k] != 0) 
+System.out.println(sayacDizisi[k] + " adet = " + karakterDizisi[k] ); 
+} 
+} 
+public static void main(String[] args) {
+String kelime;
+Scanner input = new Scanner(System.in);
+System.out.println("Bir kelime giriniz :");
+kelime = input.nextLine();
+new odev().karakterSayaci(kelime);
+}
+}
